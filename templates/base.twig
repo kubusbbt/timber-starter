@@ -1,0 +1,37 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+<head>
+    <meta charset="{{ site.charset }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ site.description }}">
+    <title>{% if wp_title %}{{ wp_title }} - {{ site.name }}{% else %}{{ site.name }}{% endif %}</title>
+    <link rel="stylesheet" href="{{ site.theme.link }}/style.css" type="text/css" media="screen" />
+    {{function('wp_head')}}
+</head>
+    <body class="{{body_class}}">
+		<header id="site-header" class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <a href="{{site.url}}" rel="home"><img src="{{ '300x70' | image }}" alt=""></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <nav id="nav-main" class="nav-main" role="navigation">
+                            {% include "menu.twig" with {'menu': menu.get_items} %}
+                        </nav>
+                    </div>
+                </div>
+            </div>
+		</header>
+
+		{% block content %}
+			Sorry, no content
+		{% endblock %}
+
+		{% block footer %}
+			{{ function('wp_footer') }}
+		{% endblock %}
+	</body>
+</html>
